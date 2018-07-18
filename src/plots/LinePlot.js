@@ -1,17 +1,10 @@
-import CartesianPlane from "./CartesianPlane";
+import CartesianPlane from './CartesianPlane'
 
-export default class ScatterPlot extends CartesianPlane {
-  /**
-   * @param {Array} xs - array containing x coords
-   * @param {Array} ys - array containing y coords
-   * @param {String} divID - the id of the container
-   * @param {Object} options - with the following keys
-   *    @param {Number} size - the size of the point, default is 3
-   */
+export default class LinePlot extends CartesianPlane {
   constructor(xs = [], ys = [], divID, options = {})
   {
     let size = options.size || 3;
-    let config = { mode: 'markers', marker: {size}, type: 'scatter' };
+    let config = { type: 'scatter' };
     let trace = {
       x: xs,
       y: ys,
@@ -22,7 +15,7 @@ export default class ScatterPlot extends CartesianPlane {
   }
   /**
    * processData : processes new points an replaces them
-   * in the scatter plot, also alter the size and color of points
+   * in the line plot, also alter the size and color of points
    * @param {Array} xs
    * @param {Array} ys
    * @param {Number} size
@@ -42,7 +35,7 @@ export default class ScatterPlot extends CartesianPlane {
     this.refresh();
   }
   static processTrace(xs = [], ys = [], size = null, color = null) {
-    let config = { mode: 'markers', marker: {size}, type: 'scatter' };
+    let config = {type: 'scatter' };
     let trace = {
       x: xs,
       y: ys,
@@ -54,7 +47,7 @@ export default class ScatterPlot extends CartesianPlane {
     if (color) {
       /**
        *
-       * @todo Add code for setting color of points
+       * @todo Add code for setting color of line plot
        */
     }
     return trace;
